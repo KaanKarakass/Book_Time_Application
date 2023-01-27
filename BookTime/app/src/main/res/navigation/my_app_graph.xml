@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_app_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.kaankarakas.booktime.navigationDrawer.MainFragment"
+        android:label="Home Page"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_contactFragment"
+            app:destination="@id/contactFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchBookFragment"
+            app:destination="@id/searchBookFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.kaankarakas.booktime.navigationDrawer.ContactFragment"
+        android:label="Contact"
+        tools:layout="@layout/fragment_contact" />
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.kaankarakas.booktime.navigationDrawer.HelpFragment"
+        android:label="Help"
+        tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.kaankarakas.booktime.showAllBooks.ResultFragment"
+        android:label="Results"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_editBookFragment"
+            app:destination="@id/editBookFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.kaankarakas.booktime.navigationDrawer.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/searchBookFragment"
+        android:name="com.kaankarakas.booktime.searchBooks.SearchBookFragment"
+        android:label="Search Book"
+        tools:layout="@layout/fragment_search_book" >
+        <argument
+            android:name="choose"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_searchBookFragment_to_editBookFragment"
+            app:destination="@id/editBookFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editBookFragment"
+        android:name="com.kaankarakas.booktime.editBooks.EditBookFragment"
+        android:label="Edit Book"
+        tools:layout="@layout/fragment_edit_book" >
+        <argument
+            android:name="bookId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_editBookFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+        <action
+            android:id="@+id/action_editBookFragment_to_searchBookFragment"
+            app:destination="@id/searchBookFragment" />
+    </fragment>
+</navigation>
